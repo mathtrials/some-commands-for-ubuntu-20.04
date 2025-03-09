@@ -32,3 +32,10 @@ Check the amount of swap available
 ```console
 grep SwapTotal /proc/meminfo
 ```
+
+
+## How to make apple's macos image preview like feature in ubuntu
+```console
+sudo apt-get update
+sudo apt-get install gnome-sushi
+```
