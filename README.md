@@ -33,9 +33,45 @@ Check the amount of swap available
 grep SwapTotal /proc/meminfo
 ```
 
+## To add a path to linux environment variable:
+### Add it to your ~/.profile or ~/.bashrc file. 
+
+```console
+export PATH="$PATH:/path/to/dir"
+```
+
+Depending on what you're doing, you also may want to symlink to binaries:
+```console
+cd /usr/bin
+sudo ln -s /path/to/binary binary-name
+```
+
+Note that this will not automatically update your path for the remainder of the session. To do this, you should run:
+
+```console
+source ~/.profile
+```
+or
+```console
+source ~/.bashrc
+```
 
 ## How to make apple's macos image preview like feature in ubuntu
 ```console
 sudo apt-get update
 sudo apt-get install gnome-sushi
 ```
+
+## To extract integers from a string
+
+```console
+import re
+s = "checking skr (2, 3, 4, 6, -2, 12)"
+#Find all integers (including negative numbers)
+numbers = list(map(int, re.findall(r'-?\d+', s)))
+```
+re.findall(r'-?\d+', s):
+\d+ matches one or more digits.
+-? optionally matches a minus sign (for negative numbers).
+map(int, ...) converts all matched strings to integers.
+list(...) converts the map object to a list.
